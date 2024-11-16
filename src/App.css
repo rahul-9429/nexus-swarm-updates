@@ -19,6 +19,13 @@ body{
   header img{
     height: 7rem;
   }
+
+ .news-sub{
+  backdrop-filter: blur(5px);
+  
+  text-align: center;
+  font-size: large;
+ } 
 .card {
   /* border: 2px solid red !important; */
   /* max-width: 320px; */
@@ -48,6 +55,12 @@ header{
   justify-content: center;
   align-items: center;
 flex-direction: column;
+/* 
+background: 
+    linear-gradient(135deg, #fac21f, #ff7b05),
+    linear-gradient(225deg, #ff7b05, #fac21f);
+  background-size: cover;
+  background-blend-mode: overlay; */
  /* background: 
     linear-gradient(135deg, #fac21f 25%, transparent 25%),
     linear-gradient(45deg, #ff7b05 25%, transparent 25%),
@@ -168,6 +181,7 @@ flex-direction: column;
 .container-wrap{
   /* background-image: url(''); */
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -192,16 +206,34 @@ border-radius: 10px;
 border: 1px solid rgba(255,255,255,0.18);
 }
 .logo-caption{
+  background: linear-gradient(to right, #ffbf00, #ff7b05);
+    background-size: 200% 200%; /* Make gradients larger */
+  color: transparent; /* Make text transparent */
+  background-clip: text; /* Clip background to the text */
+  -webkit-background-clip: text; /* Safari compatibility */
   font-family: "Montserrat", sans-serif;
-  margin: -1rem;
   font-size: 3rem;
- 
+  margin: -1rem;
+  animation: marble-flow 4s infinite alternate;
+/* background-color: #ffffff; */
+/* -webkit-text-stroke: 1px #000000; Outer border color */
+/* text-stroke: 2px #ff7b05;  */
+/* text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); */
+}
+@keyframes marble-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 .socials{
   width: auto;
   height: max-content;
   position: fixed;
-  background-color: #fac21f;
+  background: linear-gradient(to right, #ffbf00, #ff7b05);
+
   z-index: 4;
   right: 0;
   top:30vh;
@@ -252,5 +284,21 @@ border: 1px solid rgba(255,255,255,0.18);
   row-gap: 1.5rem;
   /* width: 80%; */
 }
-
+.p1{
+  height: 3rem;
+  position: absolute;
+  z-index: 1;
+  top: -1;            /* Position at the top */
+    right: 13%;          /* Position at the right */
+}
+.p3{
+  height: 5rem;
+  /* backdrop-filter: blur(20px); */
+  /* background-color: #ffffff; */
+  /* border-radius: 50%; */
+  position: absolute;
+  top: 20%;
+ left: 8%;
+  /* z-index: 2; */
+}
 @media 

@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
+import { getDatabase, ref, onValue } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyAxrrFC-4ckuK7s25ZRbgDg-ZRQst1oqoc",
   authDomain: "nexus-888ac.firebaseapp.com",
@@ -13,5 +14,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-export { app, db };
+const database = getDatabase(app);
+export { app, db ,database, ref, onValue};

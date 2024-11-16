@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
-import Logo from '../NEXUSSwarm.png';
-import N_bee from '../nexus-bee.png'
+import Logo from '../photos/NEXUSSwarm.png';
+import N_bee from '../photos/nexus-bee.png'
+import P1 from '../photos/1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +10,9 @@ const JobCard = ({ obj }) => {
   return (
     <>
       <div className="container-wrap">
+       
+        <div class="bee-icon">
+        </div>
         <div className="card">
           <div className="card-header"><img src={Logo} alt="Nexus Swarm Logo" className="card-nexus-logo" /></div>
           <div className="header">

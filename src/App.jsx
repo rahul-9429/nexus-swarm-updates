@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from './assets/Layout.jsx';
-import Admin from './assets/Admin.jsx';
-import Home from  './assets/Home.jsx';
+import Layout from './components/Layout.jsx';
+import Admin from './components/Admin.jsx';
+import Home from  './components/Home.jsx';
 function App() {
   return (
     <BrowserRouter>
