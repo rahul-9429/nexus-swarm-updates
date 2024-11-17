@@ -4,6 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase_config';
 import '../App.css';
+console.log(import.meta.env);
 
 const Admin = () => {
     const navigate = useNavigate();
