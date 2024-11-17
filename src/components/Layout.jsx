@@ -28,9 +28,21 @@ const Layout = () => {
       {/* <img src={N_bee} alt="" className='n_bee'/>
       <img src={N_bee} alt="" className='n_bee'/>
       <img src={N_bee} alt="" className='n_bee'/> */}
+      <a href="https://www.whatsapp.com/channel/0029VadY0pO1Hspr6yKS1Y1P">
       <img src="https://img.icons8.com/?size=30&id=16733&format=png&color=000000" alt="" />
-      <img src="https://img.icons8.com/?size=30&id=8808&format=png&color=000000" alt="" />
-      <img src="https://img.icons8.com/?size=30&id=dz63urxyxSdO&format=png&color=000000" alt="" />
+        </a>
+        
+        <a href="https://www.linkedin.com/company/nexus-swarm/posts/?feedView=all&viewAsMember=true">
+        <img src="https://img.icons8.com/?size=30&id=8808&format=png&color=000000" alt="" />
+          </a>
+          
+          <a href="https://www.instagram.com/nexus_swarm">
+          <img src="https://img.icons8.com/?size=30&id=dz63urxyxSdO&format=png&color=000000" alt="" />
+
+          </a>
+      
+      
+      
       </div>
      <main>
         <Outlet />
@@ -48,7 +60,9 @@ const Layout = () => {
       </div>
    
   <hr />
-  <p>Designed and Developed by RahulKasimikota</p>
+  <p className='news-sub'>
+    All rights reserved
+    <br />Designed and Developed by Nexus Swarm</p>
     </footer>
     </>
   )
