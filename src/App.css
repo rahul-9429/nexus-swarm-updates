@@ -8,7 +8,7 @@ body{
     display: flex
 ;
     background-color: #fff;
-    background-image: linear-gradient(#bebebe 1px, transparent 1px), linear-gradient(to right, #d3d3d3 1px, #fff 1px);
+    background-image: linear-gradient(#d8d8d8 1px, transparent 1px), linear-gradient(to right, #d8d8d8 1px, #fff 1px);
     background-size: 30px 30px;
     -webkit-user-select: none;
     /* user-select: none; */
@@ -16,10 +16,12 @@ body{
     display: none;
   }
 
-  header img{
+  header img, .footer-logo{
     height: 7rem;
   }
-
+footer{
+  /* font-family: monospace !important; */
+}
  .news-sub{
   backdrop-filter: blur(5px);
   
@@ -404,4 +406,213 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 60dvh;
+}
+.sub-mail-div{
+  width: 10rem !important;
+  margin: 15px 0 7px 0;
+  background: linear-gradient(50deg,#ff7b05,#fac31b, #ffbf00, #ff7b05);
+  border: none;
+  color: rgb(3, 3, 3);
+  font-size: 1.1rem;
+  font-weight: 400;
+  border-radius: 10px;
+  height: 2.5rem;
+  cursor: pointer;
+  font-family: monospace;
+}
+.input-sub{
+  height: 2.2rem;
+  width: 16rem;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid #9a9a9a;
+  margin-right: 2rem;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: 400;
+  color: #000;
+}
+.input-sub:focus, .input-sub:hover{
+  outline: none;
+  box-shadow: 4px 4px 10px 0px #ffbf00c7;
+  transition: all .2s ease;
+}
+.footer-para{
+  margin-bottom: -.4rem;
+  font-size: larger;
+  backdrop-filter: blur(20px);
+}
+.sub-form{}
+.social-links{
+  display: flex;
+  flex-direction: row;
+}
+.part{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+}
+.part-1 ul{
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin-top: -0.5rem;
+}
+/* 
+.load-wrap{
+  display: flex;
+  flex-direction: column;
+  animation-name: loadingani;
+  animation-duration: 2s ;
+  animation-iteration-count: infinite;
+}
+.load-wrap img{
+  height: 1rem;
+  opacity: 0;
+  animation-name: loadingani;
+  animation-duration: 2s ;
+  animation-iteration-count: infinite;
+} */
+
+/* @keyframes loadingani {
+
+    10%{
+      .loading_cls1{
+        opacity: 1;
+      }
+      
+
+    }
+    20%{
+      .loading_cls1{
+        opacity: 0;
+      }
+      .loading_cls2{
+      opacity: 1;
+    }
+    }
+    30%{
+      opacity: 0.5;
+    }
+    40%{
+      opacity: 0.75;
+    }
+    50%{
+      opacity: 1;
+    }
+    
+} */
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+}
+
+.active .page-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.disabled .page-link {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.load-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.load-wrap img {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.load-wrap .loading_cls1 {
+  animation-delay: 0s;
+}
+
+.load-wrap .loading_cls2 {
+  animation-delay: 0.2s;
+}
+
+.load-wrap .loading_cls3 {
+  animation-delay: 0.4s;
+}
+
+/* Uncomment as more images are added */
+.load-wrap .loading_cls4 {
+  animation-delay: 0.6s;
+}
+
+.load-wrap .loading_cls5 {
+  animation-delay: 0.8s;
+}
+
+/* @keyframes bounce {
+  0%,100% {
+    transform: scale(0);
+  }
+  10%, 90% {
+    transform: scale(.25);
+  } 
+  20%, 80%{
+    transform: scale(.5);
+  }
+  30%, 70% {
+    transform: scale(.75);
+  }
+  40%,60% {
+    transform: scale(1);
+  }
+} */
+@keyframes bounce {
+  0%, 100% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+.input-sub::placeholder{
+  font-family: monospace;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .cars-display{
+    /* align-items: center;
+    justify-content: center;
+    display: grid; */
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    /* column-gap: 3rem; */
+    /* width: 80%; */
+  }
 }

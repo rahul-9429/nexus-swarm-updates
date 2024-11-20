@@ -4,7 +4,7 @@ import Logo from '../photos/NEXUSSwarm.png';
 import N_bee from '../photos/nexus-bee.png'
 import P1 from '../photos/1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faMapMarkerAlt ,faGraduationCap} from '@fortawesome/free-solid-svg-icons';
 
 const JobCard = ({ obj }) => {
   return (
@@ -33,9 +33,14 @@ const JobCard = ({ obj }) => {
                 <FontAwesomeIcon icon={faMapMarkerAlt} /> 
                 <a href={obj.location_link}>
                 <span className="date_loc">
-                
                 {obj.location}
                 </span></a>
+                <br />
+                <FontAwesomeIcon icon={faGraduationCap} />
+                <span className="date_loc">
+                {obj.Qualification}
+                </span>
+                
             </div>
           </p>
           <div className="actions">
