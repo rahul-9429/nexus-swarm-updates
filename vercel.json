@@ -1,19 +1,28 @@
 {
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build"
+      "source": "/old-route",
+      "destination": "/new-route"
     }
   ],
-  
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ]
-  ,  
-  "routes": [
+  "redirects": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/deprecated",
+      "destination": "/new-path",
+      "statusCode": 301
     }
-  ]
+  ],
+  "headers": [
+    {
+      "source": "/some-path/*",
+      "headers": [
+        {
+          "key": "X-Custom-Header",
+          "value": "some-value"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
