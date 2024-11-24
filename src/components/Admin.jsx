@@ -140,7 +140,7 @@ const Admin = () => {
                         onChange={handleQualification}
                         required
                     />
-                </div> */}
+                </div>  */}
                 <button type="submit" className="button-submit bnt-admin sub-mail-div">
                     Submit
                 </button>
