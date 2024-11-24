@@ -876,4 +876,14 @@ main{
   font-family: cursive;
   color: #515151;
 }
+.form{
+  width: 60%;
+  margin: 0;
+}
+.form a{
+  color: #000;
+}
+.form button{
+  width: 80%;
+}
 }
