@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Job_card from './job_card';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from './firebase_config.js';
 import Loading from './Loading.jsx';
 import ReactPaginate from 'react-paginate';
 
 const Home = () => {
-    const [data, setData] = useState([]); 
+    const [data, setData] = useState([]);
     const [currentPageData, setCurrentPageData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [highlightedId, setHighlightedId] = useState(null); // To store the shared card ID
     const itemsPerPage = 6;
 
     const fetchFirestoreData = async () => {
@@ -21,10 +22,23 @@ const Home = () => {
                 fetchedData.push({ id: doc.id, ...doc.data() });
             });
 
-            setData(fetchedData);
-            setIsLoading(false);
+            const sortedData = fetchedData.sort((a, b) => {
+                const currentDate = new Date();
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
 
-            setCurrentPageData(fetchedData.slice(0, itemsPerPage));
+                const isExpiredA = dateA < currentDate;
+                const isExpiredB = dateB < currentDate;
+
+                if (isExpiredA && !isExpiredB) return 1;
+                if (!isExpiredA && isExpiredB) return -1;
+
+                return Math.abs(dateA - currentDate) - Math.abs(dateB - currentDate);
+            });
+
+            setData(sortedData);
+            setCurrentPageData(sortedData.slice(0, itemsPerPage));
+            setIsLoading(false);
         } catch (error) {
             console.error('Error retrieving Firestore data:', error);
             setIsLoading(false);
@@ -33,6 +47,10 @@ const Home = () => {
 
     useEffect(() => {
         fetchFirestoreData();
+
+        const params = new URLSearchParams(window.location.search);
+        const sharedId = params.get('id');
+        setHighlightedId(sharedId);
     }, []);
 
     const handlePageClick = (selectedPage) => {
@@ -47,7 +65,7 @@ const Home = () => {
                     <Loading />
                 ) : currentPageData.length > 0 ? (
                     currentPageData.map((item) => (
-                        <Job_card key={item.id} obj={item} />
+                        <Job_card key={item.id} obj={item} highlighted={highlightedId === item.id} />
                     ))
                 ) : (
                     <p>No data available</p>
@@ -56,8 +74,8 @@ const Home = () => {
 
             {!isLoading && data.length > itemsPerPage && (
                 <ReactPaginate
-                    previousLabel={'Previous page'}
-                    nextLabel={'Next'}
+                    previousLabel={'<<'}
+                    nextLabel={'>>'}
                     breakLabel={'...'}
                     pageCount={Math.ceil(data.length / itemsPerPage)}
                     marginPagesDisplayed={2}

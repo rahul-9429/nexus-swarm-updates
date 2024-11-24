@@ -4,7 +4,6 @@ import { collection, addDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase_config';
 import '../App.css';
-console.log(import.meta.env);
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -57,10 +56,12 @@ const Admin = () => {
 
     return (
         <div className="admin-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='admins-form'>
+                <h1 className="admin-name">Hello, {}</h1>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
+                    placeholder='Enter event name'
                         type="text"
                         className="form-control"
                         id="title"
@@ -73,6 +74,7 @@ const Admin = () => {
                 <div className="form-group">
                     <label htmlFor="description">Description</label>
                     <textarea
+                    placeholder='Enter event description'
                         cols={30}
                         className="form-control"
                         id="description"
@@ -87,8 +89,8 @@ const Admin = () => {
                     <label htmlFor="date">Date</label>
                     <input
                         type="date"
-                        className="form-control"
-                        id="date"
+                        className="form-control date-ip"
+                        id="date date-ip"
                         value={date}
                         onChange={handleDate}
                         required
@@ -97,6 +99,7 @@ const Admin = () => {
                 <div className="form-group">
                     <label htmlFor="external-url">External URL</label>
                     <input
+                    placeholder='Enter registration url'
                         type="url"
                         className="form-control"
                         id="external-url"
@@ -108,6 +111,7 @@ const Admin = () => {
                 <div className="form-group">
                     <label htmlFor="location">Location</label>
                     <input
+                    placeholder='Enter location'
                         type="text"
                         className="form-control"
                         id="location"
@@ -119,6 +123,7 @@ const Admin = () => {
                 <div className="form-group">
                     <label htmlFor="location-url">Location URL</label>
                     <input
+                    placeholder='Enter location url'
                         type="text"
                         className="form-control"
                         id="location-url"
@@ -126,18 +131,17 @@ const Admin = () => {
                         onChange={handleLocationUrl}
                     />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label htmlFor="qualification">Qualification</label>
                     <input
+                    placeholder='BTech/BE/Diplamo/Any'
                         type="text"
                         className="form-control"
-                        id="location-url"
-                        value={locationUrl}
                         onChange={handleQualification}
                         required
                     />
-                </div>
-                <button type="submit" className="btn btn-primary">
+                </div> */}
+                <button type="submit" className="button-submit bnt-admin sub-mail-div">
                     Submit
                 </button>
             </form>
