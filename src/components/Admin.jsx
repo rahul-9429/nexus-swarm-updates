@@ -57,7 +57,7 @@ const Admin = () => {
     return (
         <div className="admin-form">
             <form onSubmit={handleSubmit} className='admins-form'>
-                <h1 className="admin-name">Hello, {}</h1>
+                <h1 className="admin-name">Hello, Queen Bee {}</h1>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
@@ -142,7 +142,7 @@ const Admin = () => {
                     />
                 </div>  */}
                 <button type="submit" className="button-submit bnt-admin sub-mail-div">
-                    Submit
+                    Post
                 </button>
             </form>
         </div>

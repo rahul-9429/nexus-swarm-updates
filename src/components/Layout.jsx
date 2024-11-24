@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Logo from '../photos/NEXUSSwarm.png';
 import P3 from '../photos/3.png';
@@ -12,6 +12,16 @@ import P8 from '../photos/8.png';
 const Layout = () => {
   const [email, setEmail] = useState('');
   const [subState, setSubState] = useState(false);
+  const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 10));
+  const [currTime, setCurrTime] = useState();
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setCurrTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, []);
+
   const handleEmail = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -42,7 +52,6 @@ const Layout = () => {
       // alert('Subscription failed.');s
     }
   };
-  
 
   return (
     <>
@@ -51,13 +60,17 @@ const Layout = () => {
           <img src={Logo} alt="Nexus Swarm Logo" />
         </div>
         <h1 className="logo-caption">Where Ideas Converge</h1>
-        <form>
+        
           <p className="news-sub">
             Join our hive and Stay ahead of the curve with the latest tech trends!
             <br />
             Catch all the latest happenings before anyone else.
           </p>
-        </form>
+          <span className="date-dis">
+             <span>{currDate}</span>
+             <span>{currTime}</span>
+               </span>
+        
       </header>
 
       <img src={P3} alt="Tech Image" className="p3" />
@@ -120,7 +133,7 @@ const Layout = () => {
         <hr />
 
         <div className="social-links">
-          <div className="part part-1">
+          <div className="part-1">
             <img src={Logo} alt="Footer Logo" className="footer-logo" />
             <ul>
               <li>Unite</li>
@@ -128,36 +141,36 @@ const Layout = () => {
               <li>Explore</li>
             </ul>
           </div>
-
-          <div className="part part-1">
-            <a href="">
+          <div className="footer-sm">
+          <div className="part part-2">
+            <a href="https://whatsapp.com/channel/0029VadY0pO1Hspr6yKS1Y1P">
               <span>Whatsapp <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="https://www.instagram.com/nexus_swarm">
               <span>Instagram <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/company/nexus-swarm/?viewAsMember=true">
               <span>LinkedIn <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/@nexus_swarm?sub_confirmation=1">
               <span>Youtube <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
           </div>
 
-          <div className="part-2 part">
-            <a href="">
+          <div className="part-3 part">
+            <a href="https://whatsapp.com/channel/0029VadY0pO1Hspr6yKS1Y1P">
               <span>Telegram <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="https://forms.gle/M3ihxsHfSY8tQYYf6">
               <span>Campus Ambassadors <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="https://forms.gle/TeJrQmC6HwbLCVHA8">
               <span>Speaker Interest Form <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-            <a href="">
+            <a href="mailto:nexuswarm@gmail.com">
               <span>Contact <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
-          </div>
+          </div></div> 
         </div>
 
         <p className="news-sub-small">

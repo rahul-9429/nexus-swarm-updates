@@ -18,6 +18,15 @@ body{
   header img, .footer-logo{
     height: 7rem;
   }
+  .date-dis{
+    display: flex;
+    font-family: monospace;
+    /* text-align: start;      */
+    width: 80%;
+    justify-content: space-between;
+  }
+  footer{
+backdrop-filter: blur(20px);  }
 footer a{
   font-family: monospace !important;
   color: #000;
@@ -35,12 +44,11 @@ footer a:hover{
 }
  .news-sub{
   backdrop-filter: blur(5px);
-  
   text-align: center;
   font-size: large;
  } 
 .card {
-    min-height: 13.6rem !important; 
+    /* min-height: 13.6rem !important;  */
     /* max-height: 13.61rem !important;  */
     min-width: 21rem;
     max-width: 21rem;
@@ -210,6 +218,7 @@ background:
     width: fit-content;
 }
 .admin-form{
+  margin: 2.4rem 0 2.4rem 0;
   border-width: 1px;
   border-radius: 1rem;
   padding: 1rem;
@@ -581,12 +590,30 @@ main{
   display: flex;
   flex-direction: row;
 }
-.part{
+.part-1{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 30%;
+  width: 30% !important;
+}
+.part-3{
+  flex-grow: 1;
+}
+.part-2{
+  width: 50% !important;
+
+}
+.part-2, .part-3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer-sm{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 .part-1 ul{
   display: flex;
@@ -771,7 +798,10 @@ main{
     /* column-gap: 3rem; */
     /* width: 80%; */
   }
-  .card{margin-left: 0;}
+  .card{margin-left: 0;
+    min-width:18rem;
+    min-height: 0 !important;
+  }
   .social-links{
     display: flex;
     flex-direction: column;
@@ -792,13 +822,58 @@ main{
   }
   .logo-caption 
   {
-    margin: -1rem 0 -1rem 0;
+    /* margin: -1rem 0 -1rem 0; */
     text-align: center;
+    font-size: 2rem;
   }
   .footer-para,.sub-form{
     margin: 1rem 2rem 1rem 2rem;
   }
-  .p3,.p2,.p2-sub, .p5,.p6{
+  .p6{
     display: none;
   }
+  .p5{
+    height: 3rem;
+    left: 86%;
+  }
+  .p2{
+    top: 4%;
+    left: 75%;
+    height: 4rem;
+  }
+  .p2-sub{
+    top: 2% !important;
+    left: 86%;
+    height: 3rem;
+  }
+  .p3{
+    top: 4%;
+    left: 7%;
+    height: 3rem;
+  }
+  .news-sub{
+margin-left: .6rem;
+margin-right: .6rem;  }
+main{
+  margin-bottom: 2.6rem;
+}
+.form-group{
+  flex-direction: column;
+  align-items: start; 
+}
+.form-group label{
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.form-group button{
+  margin-top: 2rem !important;
+}
+.admin-form {
+  margin: 1rem 0 1rem 0;
+}
+.admin-form  h1{
+  margin: 0;
+  font-family: cursive;
+  color: #515151;
+}
 }
