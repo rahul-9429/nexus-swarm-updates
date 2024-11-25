@@ -9,11 +9,14 @@ const Admin = () => {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [descriptionlen, setDescriptionLen] = useState(0);
+    const [titleLen, setTitleLen] = useState(0);
     const [date, setDate] = useState('');
     const [externalUrl, setExternalUrl] = useState('');
     const [location, setLocation] = useState('');
     const [locationUrl, setLocationUrl] = useState('');
     const [Qualification, setQualification] = useState('');
+    const [err, setErr] = useState('Start Typing....');
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (!user) {
@@ -23,15 +26,34 @@ const Admin = () => {
         return unsubscribe; 
     }, [navigate]);
 
-    const handleTitle = (e) => setTitle(e.target.value);
-    const handleDescription = (e) => setDescription(e.target.value);
+    const handleTitle = (e) => 
+        {setTitle(e.target.value);
+        setTitleLen(e.target.value.length);
+        }
+    const handleDescription = (e) =>{ setDescription(e.target.value)
+        setDescriptionLen(e.target.value.length);
+    };
+    // console.log(descriptionlen);
     const handleDate = (e) => setDate(e.target.value);
     const handleExternalUrl = (e) => setExternalUrl(e.target.value);
     const handleLocation = (e) => setLocation(e.target.value);
     const handleLocationUrl = (e) => setLocationUrl(e.target.value);
-    const handleQualification = (e) => setQualification(e.target.value);
+    // const handleQualification = (e) => setQualification(e.target.value);
     const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        if (titleLen > 45) {
+            setErr("Title is too long! Limit to 45 chars");
+            return;
+        }
+    
+        if (descriptionlen < 186 || descriptionlen > 210) {
+            setErr(`Description must be between 186 and 210 characters. Remaining: ${(descriptionlen < 186) ? 186 - descriptionlen : 0}`);
+            return;
+        }
+    
+        setErr("");
+    
         try {
             await addDoc(collection(db, "nexus-updates"), {
                 title,
@@ -43,16 +65,20 @@ const Admin = () => {
                 Qualification,
                 timestamp: new Date(),
             });
+    
             setTitle('');
             setDescription('');
             setDate('');
             setExternalUrl('');
             setLocation('');
             setLocationUrl('');
+            setErr("Submission successful!"); 
         } catch (error) {
             console.error("Error adding document: ", error);
+            setErr("Failed to add document. Please try again.");
         }
     };
+    
 
     return (
         <div className="admin-form">
@@ -141,6 +167,9 @@ const Admin = () => {
                         required
                     />
                 </div>  */}
+                <p className='error-para'>
+                {err}
+                </p>
                 <button type="submit" className="button-submit bnt-admin sub-mail-div">
                     Post
                 </button>

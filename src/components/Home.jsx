@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import Job_card from './job_card';
 import { collection, getDocs } from 'firebase/firestore';
@@ -10,8 +10,10 @@ const Home = () => {
     const [data, setData] = useState([]);
     const [currentPageData, setCurrentPageData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [highlightedId, setHighlightedId] = useState(null); // To store the shared card ID
+    const [highlightedId, setHighlightedId] = useState(null); 
     const itemsPerPage = 6;
+
+    const refs = useRef({}); 
 
     const fetchFirestoreData = async () => {
         try {
@@ -53,6 +55,18 @@ const Home = () => {
         setHighlightedId(sharedId);
     }, []);
 
+    useEffect(() => {
+        if (!isLoading && highlightedId) {
+            const scrollToElement = () => {
+                if (refs.current[highlightedId]) {
+                    refs.current[highlightedId].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            };
+
+            scrollToElement();
+        }
+    }, [highlightedId, isLoading, currentPageData]);
+
     const handlePageClick = (selectedPage) => {
         const offset = selectedPage.selected * itemsPerPage;
         setCurrentPageData(data.slice(offset, offset + itemsPerPage));
@@ -65,7 +79,12 @@ const Home = () => {
                     <Loading />
                 ) : currentPageData.length > 0 ? (
                     currentPageData.map((item) => (
-                        <Job_card key={item.id} obj={item} highlighted={highlightedId === item.id} />
+                        <div
+                            key={item.id}
+                            ref={(el) => (refs.current[item.id] = el)} // Attach ref dynamically
+                        >
+                            <Job_card obj={item} highlighted={highlightedId === item.id} />
+                        </div>
                     ))
                 ) : (
                     <p>No data available</p>

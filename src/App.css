@@ -62,6 +62,7 @@ footer a:hover{
     -webkit-backdrop-filter: blur(30px);
     backdrop-filter: blur(30px);
     border-radius: 10px;
+  color: rgb(43, 43, 43) !important;
     border: 1px solid rgba(255, 255, 255, .18);
 }
 .header {
@@ -69,6 +70,8 @@ footer a:hover{
   align-items: center;
   /* grid-gap: 1rem; */
   /* gap: 1rem; */
+  color: rgb(43, 43, 43) !important;
+  
 }
 header{
   display: flex;
@@ -110,8 +113,10 @@ background:
 }
 
 .message {
-  margin: 0rem;
-  color: rgb(69, 67, 67);
+  margin: 0rem 0rem 0rem 10px;
+  color: rgb(43, 43, 43);
+  word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
 }
 .message-2{
   margin: .5rem;
@@ -141,6 +146,11 @@ background:
 .Share{
   margin-left: 0% !important;
 }
+.apply{
+  background: linear-gradient(to right,#FFC107,#FF9800);
+  color: #000;
+  /* transition: background ease-in-out 1s !important; */
+}
 .mark-as-read, .read {
   display: inline-block;
   border-radius: 0.5rem;
@@ -153,11 +163,6 @@ background:
   /* margin: 2rem; */
 }
 
-/* .read {
-  background-color: rgba(59, 130, 246, 1);
-  color: rgba(255, 255, 255, 1);
-} */
-
 .mark-as-read {
   margin-top: 0.5rem;
   background-color:  rgb(230, 231, 233);
@@ -166,21 +171,24 @@ background:
   color: rgb(0, 0, 0);
   transition: ease-in-out .3s;
 }
-.apply{
-  /* background: linear-gradient(50deg, #ff7b05, #fac31b, #ffbf00, #ff7b05); */
-  /* background-color: #FF9800; */
+/* .apply{
+  
   background: linear-gradient(to right,#FFC107,#FF9800);
   color: #000;
-  transition: ease-in-out .3s;
+  
 
-}
-.mark-as-read:hover {
+} */
+.apply:hover{
   background: linear-gradient(50deg, #ff7b05, #fac31b, #ffbf00, #ff7b05);
-
+  /* background: #f0f0f0; */
+  color: #000;
 }
+/* .mark-as-read:hover {
+  transition: ease-in-out .5s;
+} */
 .Share:hover{
-  background: linear-gradient(50deg, #ff7b05, #fac31b, #ffbf00, #ff7b05);
-
+   background: rgb(200, 200, 200);
+  /* background: linear-gradient(50deg, #ff7b05, #fac31b, #ffbf00, #ff7b05); */
 }
 
 .card-nexus-logo{
@@ -247,6 +255,10 @@ input[date]{
  justify-content: center;
  font-family:Verdana, Geneva, Tahoma, sans-serif;
  font-weight: 500;
+}
+.admin-form h1{
+font-family: monospace;
+color: #454545;
 }
 .admin-form input{
   /* width:; */
@@ -583,7 +595,7 @@ main{
 .footer-para{
   margin-bottom: -.4rem;
   font-size: larger;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(1px);
 }
 .sub-form{}
 .social-links{
@@ -681,6 +693,7 @@ main{
   list-style: none;
   justify-content: center;
   padding: 0;
+  align-items: center;
 }
 
 .page-item {
@@ -688,12 +701,16 @@ main{
 }
 
 .page-link {
-  padding: 8px 12px;
+  padding: 8px 10px;
   border: 1px solid #ddd;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 15px;
 }
-
+.error-para{
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 0;
+}
 .page-link:hover {
   background-color: #f0f0f0;
 }
@@ -848,7 +865,7 @@ main{
   }
   .p3{
     top: 4%;
-    left: 7%;
+    left: 3%;
     height: 3rem;
   }
   .news-sub{
@@ -873,8 +890,11 @@ main{
 }
 .admin-form  h1{
   margin: 0;
-  font-family: cursive;
-  color: #515151;
+  /* font-family: cursive; */
+  /* color: #515151; */
+}
+.admin-form label{
+  width: 100% !important;
 }
 .form{
   width: 60%;

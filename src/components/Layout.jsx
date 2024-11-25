@@ -25,7 +25,7 @@ const Layout = () => {
   const handleEmail = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const form = document.getElementsByClassName('sub-form');
+    const form = document.querySelector('.sub-form'); 
     try {
       const response = await fetch(
         'https://script.google.com/macros/s/AKfycbwooL7MSd4795Hrev2aLQ9mA6mvCw31hS_hmn91EGQorSrf_83iptfD2Oi5Y9-4q6ls/exec',
@@ -45,10 +45,10 @@ const Layout = () => {
         result = await response.text(); 
       }
   
-      console.log('Success:', result);
+      // console.log('Success:', result);
       // alert('Subscription successful!');
     } catch (error) {
-      console.error('Error:', error);
+      // console.error('Error:', error);
       // alert('Subscription failed.');s
     }
   };
@@ -165,7 +165,7 @@ const Layout = () => {
               <span>Campus Ambassadors <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
             <a href="https://forms.gle/TeJrQmC6HwbLCVHA8">
-              <span>Speaker Interest Form <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <span>Speaker Interest<svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
             <a href="mailto:nexuswarm@gmail.com">
               <span>Contact <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
