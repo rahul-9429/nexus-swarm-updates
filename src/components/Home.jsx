@@ -81,7 +81,7 @@ const Home = () => {
                     currentPageData.map((item) => (
                         <div
                             key={item.id}
-                            ref={(el) => (refs.current[item.id] = el)} // Attach ref dynamically
+                            ref={(el) => (refs.current[item.id] = el)}
                         >
                             <Job_card obj={item} highlighted={highlightedId === item.id} />
                         </div>
