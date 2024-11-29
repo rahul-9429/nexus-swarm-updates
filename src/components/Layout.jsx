@@ -12,16 +12,7 @@ import P8 from '../photos/8.png';
 const Layout = () => {
   const [email, setEmail] = useState('');
   const [subState, setSubState] = useState(false);
-  const [currDate, setCurrDate] = useState(new Date().toISOString().slice(0, 10));
-  const [currTime, setCurrTime] = useState();
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      setCurrTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    return () => clearInterval(timerId);
-  }, []);
-
+  
   const handleEmail = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -66,10 +57,7 @@ const Layout = () => {
             <br />
             Catch all the latest happenings before anyone else.
           </p>
-          <span className="date-dis">
-             <span>{currDate}</span>
-             <span>{currTime}</span>
-               </span>
+         
         
       </header>
 

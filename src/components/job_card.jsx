@@ -10,15 +10,14 @@ const JobCard = ({ obj, highlighted }) => {
     if (navigator.share) {
       navigator
         .share({
-          title: `Check out this job: ${obj.title}`,
-          text: obj.description,
-          url: `${window.location.origin}?id=${obj.id}`,
+          title: `Check out this latest event: ${obj.title}`,
+          text: `Join us for ${obj.title} and stay updated with Nexus Swarm. Learn more: ${window.location.origin}?id=${encodeURIComponent(obj.id)} or join us on Linktree: https://linktr.ee/nexusswarm`,
+          url: `${window.location.origin}?id=${encodeURIComponent(obj.id)}`,
         })
-        .then(() => console.log("Job shared successfully"))
-        .catch((error) => console.error("Error sharing job:", error));
+        .then(() => console.log('Content shared successfully!'))
+        .catch((error) => console.error('Error sharing content:', error));
     } else {
-      alert("Web Share API is not supported in your browser.");
-    }
+      console.log('Web Share API not supported on this browser.');}   
   };
 
   return (

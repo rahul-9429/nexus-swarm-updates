@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 import { useState } from 'react';
-import {signInWithEmailAndPassword} from 'firebase/auth';
+import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
 import { auth } from './firebase_config';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
@@ -14,12 +14,13 @@ const Login = () => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
+            // await createUserWithEmailAndPassword(auth, email, password);
             setEmail('');
             setPassword('');
             alert('Signed in successfully');
             navigate('/admin');
         } catch (error) {
-            console.error("Error signing in: ", error);
+            alert("Invalid password or email");
         }
     }
   return (
@@ -51,7 +52,7 @@ const Login = () => {
     
     <button className="button-submit" type='submit'>Sign In</button>
     <p className="p">Don't have an account? <span className="span">
-        <a href="mailto:">Contact Admin</a>
+    <a href="mailto:nexuswarm@gmail.com">Contact Admin</a>
     </span>
 
     </p>

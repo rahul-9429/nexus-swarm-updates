@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { collection, addDoc } from 'firebase/firestore';
+import { Link, useNavigate } from 'react-router-dom';
+import { collection, addDoc, deleteDoc, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db, auth } from './firebase_config';
 import '../App.css';
-
+import AdmDis from './AdminDis.jsx'
 const Admin = () => {
     const navigate = useNavigate();
     const [title, setTitle] = useState('');
@@ -17,6 +17,22 @@ const Admin = () => {
     const [locationUrl, setLocationUrl] = useState('');
     const [Qualification, setQualification] = useState('');
     const [err, setErr] = useState('Start Typing....');
+    const [fetchData, setFetchData] = useState([]);
+  
+    useEffect(() => {
+        const fetchDataFromFirestore = async () => {
+          try {
+            const querySnapshot = await getDocs(collection(db, 'nexus-updates'));
+            const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+            setFetchData(data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+        fetchDataFromFirestore();
+      }, []);
+      
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (!user) {
@@ -48,7 +64,7 @@ const Admin = () => {
         }
     
         if (descriptionlen < 186 || descriptionlen > 210) {
-            setErr(`Description must be between 186 and 210 characters. Remaining: ${(descriptionlen < 186) ? 186 - descriptionlen : 0}`);
+            setErr(`Description must be between 186 and 210 characters. Remaining: ${186 - descriptionlen}`);
             return;
         }
     
@@ -81,6 +97,8 @@ const Admin = () => {
     
 
     return (
+        <>
+       
         <div className="admin-form">
             <form onSubmit={handleSubmit} className='admins-form'>
                 <h1 className="admin-name">Hello, Queen Bee {}</h1>
@@ -174,7 +192,17 @@ const Admin = () => {
                     Post
                 </button>
             </form>
+           
         </div>
+        {/* <div className="adm-dis-show">
+        <div className="adm-dis-show">
+ 
+</div>
+        </div> */}
+        <span className="admin_his_li">
+            <Link to="/admin-activity">Look back into time</Link>
+            </span>
+        </>
     );
 };
 
