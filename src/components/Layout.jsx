@@ -146,7 +146,7 @@ const Layout = () => {
           </div>
 
           <div className="part-3 part">
-            <a href="https://whatsapp.com/channel/0029VadY0pO1Hspr6yKS1Y1P">
+            <a href="https://whatsapp.com/channel/0029VadY0pO1Hspr6yKS1Y1P" >
               <span>Telegram <svg width="0.625rem" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 9L9 1M9 1H2.5M9 1V7.22222" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
             </a>
             <a href="https://forms.gle/M3ihxsHfSY8tQYYf6">

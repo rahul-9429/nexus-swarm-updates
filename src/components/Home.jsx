@@ -131,7 +131,7 @@ const Home = () => {
              <span>{currTime}</span>
 
                </span>
-               <span className="sm-fil-wrap"></span>
+               <span className="sm-fil-wrap">
                <div className="filter-buttons filter-buttons-sm-scrs">
     <button 
         onClick={() => setFilter("all")} 
@@ -151,7 +151,7 @@ const Home = () => {
     >
         Past
     </button>
-</div>
+</div></span>
 
             <div className="cars-display">
                 {isLoading ? (

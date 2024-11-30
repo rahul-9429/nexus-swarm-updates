@@ -1,3 +1,4 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* #d8d8d8 */
 body{
@@ -11,6 +12,7 @@ body{
     background-size: 30px 30px;
     -webkit-user-select: none;
     /* user-select: none; */
+    font-family: "Montserrat", serif !important;
 } ::-webkit-scrollbar{
     display: none;
   }
@@ -27,7 +29,10 @@ body{
     align-items: center;
   }
   footer{
-backdrop-filter: blur(20px);  }
+backdrop-filter: blur(20px);  
+padding: 0 2.5rem 0 2.5rem;
+/* bottom: 0; */
+}
 footer a{
   font-family: monospace !important;
   color: #000;
@@ -109,11 +114,15 @@ background:
 
 .alert {
   font-weight: 600;
-  color: rgb(96, 93, 93);
+  background: linear-gradient(to right, #ffbf00, #ff7b05);
+  color: transparent;
+  -webkit-background-clip: text;
+  /* color: rgb(96, 93, 93); */
   /* font-size: large; */
 }
 
 .message {
+  word-spacing: 3px;
   margin: 0rem 0rem 0rem 10px;
   color: rgb(43, 43, 43);
   word-wrap: break-word !important;
@@ -480,6 +489,7 @@ color: #454545;
   }
 }
 .cars-display{
+  min-height: 60vh;
   align-items: center;
   justify-content: center;
   display: grid;
@@ -694,6 +704,7 @@ main{
   align-items: center;
   justify-content: center;
   min-height: 60dvh;
+  width: 100% !important;
 }
 .sub-mail-div{
   width: 10rem !important;
@@ -853,6 +864,7 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: -webkit-fill-available;
 }
 .filter-button:hover {
   background-color: #e0e0e0;
@@ -972,8 +984,8 @@ main{
     display: none;
   }
   .filter-buttons-sm-scrs{
-    /* display: flex; */
-    display: none;
+    display: flex;
+    /* display: none; */
   }
   .cars-display{
     /* align-items: center;
@@ -1014,6 +1026,9 @@ main{
   }
   .footer-para,.sub-form{
     margin: 1rem 2rem 1rem 2rem;
+  }
+  footer{
+    padding: 0;
   }
   .p6{
     display: none;
